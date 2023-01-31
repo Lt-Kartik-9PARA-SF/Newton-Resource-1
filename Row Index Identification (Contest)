@@ -1,0 +1,46 @@
+Row Index Identification (Contest)
+easy
+Time Limit: 2 sec
+Memory Limit: 128000 kB
+Problem Statement
+You are given a grid having N*M elements. Find the index of the row (1- indexed) which has the maximum sum of elements.
+Input
+The first line of the input contains two integers N and M.
+The next N lines each contains M space seperated integers.
+
+Constraints:
+1 <= N, M <= 103
+1 <= Ai, j <= 109
+Output
+Print the index of the row (1- indexed) which has the maximum sum of elements.
+Example
+Sample Input:
+3 4
+3 4 2
+5 1 7
+2 8 1
+2 3 3
+
+Sample Output:
+2
+
+Explaination:
+The row number 2 has sum = 5 + 1 + 7 = 13 which is the maximum amongst all rows.
+
+
+
+***** python solution *********
+
+def find_max_row(n, m, matrix):
+    max_sum = 0
+    max_row = 0
+    for i in range(n):
+        row_sum = sum(matrix[i])
+        if row_sum > max_sum:
+            max_sum = row_sum
+            max_row = i + 1
+    return max_row
+
+n, m = map(int, input().split())
+matrix = [list(map(int, input().split())) for _ in range(n)]
+print(find_max_row(n, m, matrix))
